@@ -5,10 +5,13 @@ metadata:
   name: podinfo
   namespace: flux-system
 spec:
-  interval: 5m0s
+  interval: 30m0s
   path: ./kustomize
   prune: true
+  retryInterval: 2m0s
   sourceRef:
     kind: GitRepository
-    name: podinfo-app
+    name: podinfo
   targetNamespace: default
+  timeout: 3m0s
+  wait: true
